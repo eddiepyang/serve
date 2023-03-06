@@ -1,4 +1,5 @@
-# TorchServe on Windows Subsystem for Linux (WSL) - Ubuntu 18.0.4
+# TorchServe on Windows Subsystem for Linux (WSL)
+* Ubuntu 18.0.4
 
 ## Contents of this Document
 
@@ -11,7 +12,7 @@
 
  - [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
  - [Windows Subsystem for Linux Installation Guide for Windows Server 2019](https://docs.microsoft.com/en-us/windows/wsl/install-on-server)
- 
+
 
 ## Install from binaries
 
@@ -23,16 +24,16 @@ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-1. Install JDK 11
+1. Install JDK 17
 
 ```bash
-sudo apt-get install openjdk-11-jdk
+sudo apt-get install openjdk-17-jdk
 ```
 
-1. Install `TorchServe` and `Torch Model Archiver`
+1. Install Dependencies
 
 ```
-pip install torch torchtext torchvision sentencepiece psutil future
+pip install torch torchtext torchvision sentencepiece psutil
 pip install torchserve torch-model-archiver
 ```
 

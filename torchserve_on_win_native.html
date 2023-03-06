@@ -6,10 +6,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TorchServe on Windows &mdash; PyTorch/Serve master documentation</title>
+  <title>15. TorchServe on Windows &mdash; PyTorch/Serve master documentation</title>
   
 
   
@@ -27,11 +28,15 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" type="text/css" />
   <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. TorchServe on Windows Subsystem for Linux (WSL)" href="torchserve_on_wsl.html" />
+    <link rel="prev" title="14. cf. https://github.com/ryanfox/sphinx-markdown-tables/issues/36" href="sphinx/requirements.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -111,12 +116,24 @@
                   <span class="dropdown-title">torchvision</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/elastic/">
-                  <span class="dropdown-title">TorchElastic</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torcharrow">
+                  <span class="dropdown-title">torcharrow</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/data">
+                  <span class="dropdown-title">TorchData</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchrec">
+                  <span class="dropdown-title">TorchRec</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/serve/">
                   <span class="dropdown-title">TorchServe</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchx/">
+                  <span class="dropdown-title">TorchX</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/xla">
@@ -136,13 +153,25 @@
                   <span class="dropdown-title">About</span>
                   <p>Learn about PyTorch’s features and capabilities</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/foundation">
+                  <span class="dropdown-title">PyTorch Foundation</span>
+                  <p>Learn about the PyTorch foundation</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/#community-module">
                   <span class="dropdown-title">Community</span>
                   <p>Join the PyTorch developer community to contribute, learn, and get your questions answered.</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/community-stories">
+                  <span class="dropdown-title">Community Stories</span>
+                  <p>Learn how our community solves real, everyday machine learning problems with PyTorch.</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/resources">
                   <span class="dropdown-title">Developer Resources</span>
                   <p>Find resources and get questions answered</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/events">
+                  <span class="dropdown-title">Events</span>
+                  <p>Find events, webinars, and podcasts</p>
                 </a>
                 <a class="nav-dropdown-item" href="https://discuss.pytorch.org/" target="_blank">
                   <span class="dropdown-title">Forums</span>
@@ -157,7 +186,7 @@
           </li>
 
           <li>
-            <a href="https://github.com/pytorch/pytorch">Github</a>
+            <a href="https://github.com/pytorch/pytorch">GitHub</a>
           </li>
         </ul>
       </div>
@@ -216,22 +245,48 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">TorchServe on Windows</a><ul>
-<li><a class="reference internal" href="#contents-of-this-document">Contents of this Document</a></li>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#install-from-binaries">Install from binaries</a></li>
-<li><a class="reference internal" href="#install-from-source">Install from source</a><ul>
-<li><a class="reference internal" href="#for-production-usage-use-commands-below">For production usage, use commands below:</a></li>
-<li><a class="reference internal" href="#for-development-purposes-use-commands-below">For development purposes, use commands below:</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">2. Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_inference_with_ts.html">3. Batch Inference with TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_coverage.html">4. Code Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">5. Advanced configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_service.html">6. Custom Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="default_handlers.html">7. TorchServe default inference handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">8. Logging in Torchserve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">9. TorchServe Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_zoo.html">10. Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request_envelopes.html">11. Request Envelopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">12. Running TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshot.html">13. TorchServe model snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx/requirements.html">14. cf. https://github.com/ryanfox/sphinx-markdown-tables/issues/36</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">15. TorchServe on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_wsl.html">16. TorchServe on Windows Subsystem for Linux (WSL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">17. Torchserve Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">18. TorchServe Workflows</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<p class="caption"><span class="caption-text">Service APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference_api.html">Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_api.html">Management API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_api.html">Metrics API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
 </ul>
-</li>
+<p class="caption"><span class="caption-text">Developer APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.html">ts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.html">ts.torch_handler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.metrics.html">ts.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.model_service.html">ts.model_service package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.protocol.html">ts.protocol package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">serve</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -262,7 +317,7 @@
   <ul class="pytorch-breadcrumbs">
     
       <li>
-        <a href="index.html">
+        <a href="contents.html">
           
             Docs
           
@@ -270,7 +325,7 @@
       </li>
 
         
-      <li>TorchServe on Windows</li>
+      <li><span class="section-number">15. </span>TorchServe on Windows</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
@@ -302,31 +357,31 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <div class="section" id="torchserve-on-windows">
-<h1>TorchServe on Windows<a class="headerlink" href="#torchserve-on-windows" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="contents-of-this-document">
-<h2>Contents of this Document<a class="headerlink" href="#contents-of-this-document" title="Permalink to this headline">¶</a></h2>
+  <section id="torchserve-on-windows">
+<h1><span class="section-number">15. </span>TorchServe on Windows<a class="headerlink" href="#torchserve-on-windows" title="Permalink to this headline">¶</a></h1>
+<section id="contents-of-this-document">
+<h2><span class="section-number">15.1. </span>Contents of this Document<a class="headerlink" href="#contents-of-this-document" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#prerequisites">Prerequisites</a></p></li>
 <li><p><a class="reference external" href="#install-from-binaries">Install from binaries</a></p></li>
 <li><p><a class="reference external" href="#install-from-source">Install from source</a></p></li>
 </ul>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="prerequisites">
+<h2><span class="section-number">15.2. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>At present, it has only been certified on windows server 2019 however should work fine on Windows 10.</p></li>
 <li><p>Make sure you are an admin user or have admin rights</p></li>
 <li><p>The instruction given here will use anaconda Powershell terminal to install torchserve</p></li>
 <li><p>Install Anaconda as given <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/">here</a></p></li>
 <li><p>Install Git as given <a class="reference external" href="https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-64-bit.exe">here</a></p></li>
-<li><p>Install openjdk11</p>
+<li><p>Install openjdk17</p>
 <ul>
-<li><p>Download <a class="reference external" href="https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip">openjdk11</a></p></li>
+<li><p>Download <a class="reference external" href="https://download.oracle.com/java/17/archive/jdk-17.0.3_windows-x64_bin.zip">openjdk17</a></p></li>
 <li><p>Unzip and edit/add environment variables i.e. PATH and JAVA_HOME
 e.g.</p></li>
-<li><p>Using command line <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">openjdk-11*_bin.zip</span></code> or using GUI interface</p></li>
-<li><p>Edit system or user profile environment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> value and append path <code class="docutils literal notranslate"><span class="pre">&lt;your-openjdk11-path&gt;\bin</span></code> to it</p></li>
+<li><p>Using command line <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">jdk-17.0.3_windows-x64_bin.zip</span></code> or using GUI interface</p></li>
+<li><p>Edit system or user profile environment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> value and append path <code class="docutils literal notranslate"><span class="pre">&lt;your-openjdk17-path&gt;\bin</span></code> to it</p></li>
 </ul>
 </li>
 <li><p>Install nodejs</p>
@@ -337,9 +392,9 @@ e.g.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="install-from-binaries">
-<h2>Install from binaries<a class="headerlink" href="#install-from-binaries" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-from-binaries">
+<h2><span class="section-number">15.3. </span>Install from binaries<a class="headerlink" href="#install-from-binaries" title="Permalink to this headline">¶</a></h2>
 <p>NOTE At present, wheels for windows are not available on PyPi. However following steps can also be used if you have prebuilt torchserve wheel for windows.</p>
 <ul class="simple">
 <li><p>Start ‘Anaconda Powershell Prompt’ (APP) as Admin User i.e. By right click on APP and run following commands</p></li>
@@ -357,13 +412,13 @@ e.g.</p></li>
 </ul>
 </li>
 <li><p>Start torchserve <code class="docutils literal notranslate"><span class="pre">torchserve.exe</span> <span class="pre">--start</span> <span class="pre">--model-store</span> <span class="pre">&lt;path-to-model-store&gt;</span></code></p></li>
-<li><p>For next steps refer <a class="reference external" href="../README.md#serve-a-model">Serving a model</a></p></li>
+<li><p>For next steps refer <a class="reference external" href="../docs/getting_started.md#serve-a-model">Serving a model</a></p></li>
 </ul>
-</div>
-<div class="section" id="install-from-source">
-<h2>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-from-source">
+<h2><span class="section-number">15.4. </span>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>Esnure that system or user profile environment variable name <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> with value as <code class="docutils literal notranslate"><span class="pre">&lt;your-openjdk11-path&gt;</span></code> path is present.</p></li>
+<li><p>Ensure that system or user profile environment variable name <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> with value as <code class="docutils literal notranslate"><span class="pre">&lt;your-openjdk17-path&gt;</span></code> path is present.</p></li>
 <li><p>Install <a class="reference external" href="https://support.microsoft.com/en-in/help/2977003/the-latest-supported-visual-c-downloads">Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019</a></p>
 <p>NOTE ensure that you have restarted system after install above Visual C++ components</p>
 </li>
@@ -374,40 +429,49 @@ e.g. C:\Program Files\NVIDIA Corporation\NVSMI, add this path to <code class="do
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">click</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">serve</span></code></p></li>
 </ul>
-<div class="section" id="for-production-usage-use-commands-below">
-<h3>For production usage, use commands below:<a class="headerlink" href="#for-production-usage-use-commands-below" title="Permalink to this headline">¶</a></h3>
+<section id="for-production-usage-use-commands-below">
+<h3><span class="section-number">15.4.1. </span>For production usage, use commands below:<a class="headerlink" href="#for-production-usage-use-commands-below" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">.\ts_scripts\install_dependencies.py</span> <span class="pre">--environment=prod</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">.\ts_scripts\install_from_src.py</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="for-development-purposes-use-commands-below">
-<h3>For development purposes, use commands below:<a class="headerlink" href="#for-development-purposes-use-commands-below" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="for-development-purposes-use-commands-below">
+<h3><span class="section-number">15.4.2. </span>For development purposes, use commands below:<a class="headerlink" href="#for-development-purposes-use-commands-below" title="Permalink to this headline">¶</a></h3>
 <p>If you plan to develop with TorchServe and change some source code, commands below will help.
 The install_dependencies script installs few extra dependencies which are needed for development and testing.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">.\ts_scripts\install_dependencies.py</span> <span class="pre">--environment=dev</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">.\ts_scripts\install_from_src.py</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="troubleshooting">
+<h2><span class="section-number">15.5. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>If you are building from source then you may have to change the port number for inference, management and metrics apis as specified in <code class="docutils literal notranslate"><span class="pre">frontend/server/src/test/resources/config.properties</span></code>,
 all files in <code class="docutils literal notranslate"><span class="pre">frontend/server/src/test/resources/snapshot/*</span></code> and <code class="docutils literal notranslate"><span class="pre">frontend/server/src/main/java/org/pytorch/serve/util/ConfigManager.java</span></code></p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">curl</span></code> command fails to execute then run following command on APP (anaconda powershell promopt)
+<li><p>If <code class="docutils literal notranslate"><span class="pre">curl</span></code> command fails to execute then run following command on APP (anaconda powershell prompt)
 <code class="docutils literal notranslate"><span class="pre">Remove-item</span> <span class="pre">alias:curl</span></code>
-Refer this <a class="reference external" href="https://stackoverflow.com/questions/25044010/running-curl-on-64-bit-windows">SO answer</a> for details.</p></li>
+Refer to this <a class="reference external" href="https://stackoverflow.com/questions/25044010/running-curl-on-64-bit-windows">SO answer</a> for details.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
              </article>
              
             </div>
             <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="torchserve_on_wsl.html" class="btn btn-neutral float-right" title="16. TorchServe on Windows Subsystem for Linux (WSL)" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="sphinx/requirements.html" class="btn btn-neutral" title="14. cf. https://github.com/ryanfox/sphinx-markdown-tables/issues/36" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
   
 
   
@@ -437,16 +501,16 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">TorchServe on Windows</a><ul>
-<li><a class="reference internal" href="#contents-of-this-document">Contents of this Document</a></li>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#install-from-binaries">Install from binaries</a></li>
-<li><a class="reference internal" href="#install-from-source">Install from source</a><ul>
-<li><a class="reference internal" href="#for-production-usage-use-commands-below">For production usage, use commands below:</a></li>
-<li><a class="reference internal" href="#for-development-purposes-use-commands-below">For development purposes, use commands below:</a></li>
+<li><a class="reference internal" href="#">15. TorchServe on Windows</a><ul>
+<li><a class="reference internal" href="#contents-of-this-document">15.1. Contents of this Document</a></li>
+<li><a class="reference internal" href="#prerequisites">15.2. Prerequisites</a></li>
+<li><a class="reference internal" href="#install-from-binaries">15.3. Install from binaries</a></li>
+<li><a class="reference internal" href="#install-from-source">15.4. Install from source</a><ul>
+<li><a class="reference internal" href="#for-production-usage-use-commands-below">15.4.1. For production usage, use commands below:</a></li>
+<li><a class="reference internal" href="#for-development-purposes-use-commands-below">15.4.2. For development purposes, use commands below:</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#troubleshooting">15.5. Troubleshooting</a></li>
 </ul>
 </li>
 </ul>
@@ -464,11 +528,12 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
 
      
        <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
          <script src="_static/jquery.js"></script>
          <script src="_static/underscore.js"></script>
          <script src="_static/doctools.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
+         <script src="_static/katex.min.js"></script>
+         <script src="_static/auto-render.min.js"></script>
          <script src="_static/katex_autorenderer.js"></script>
      
 
@@ -540,50 +605,43 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
           </ul>
         </div>
 
-        <div class="footer-links-col follow-us-col">
+        <div class="footer-links-col">
           <ul>
-            <li class="list-title">Stay Connected</li>
-            <li>
-              <div id="mc_embed_signup">
-                <form
-                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
-                  method="post"
-                  id="mc-embedded-subscribe-form"
-                  name="mc-embedded-subscribe-form"
-                  class="email-subscribe-form validate"
-                  target="_blank"
-                  novalidate>
-                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
-                    <div class="mc-field-group">
-                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
-                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
-                    </div>
-
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
-
-                    <div class="clear">
-                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-            </li>
-          </ul>
-
-          <div class="footer-social-icons">
-            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
-            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
-            <a href="https://www.youtube.com/pytorch" target="_blank" class="youtube"></a>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://www.facebook.com/pytorch" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/pytorch" target="_blank">Twitter</a></li>
+            <li><a href="https://www.youtube.com/pytorch" target="_blank">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/company/pytorch" target="_blank">LinkedIn</a></li>
+          </ul>  
           </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">PyTorch Podcasts</li>
+            <li><a href="https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5" target="_blank">Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/pytorch-developer-podcast/id1566080008" target="_blank">Apple</a></li>
+            <li><a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9PQjVGa0lsOA%3D%3D" target="_blank">Google</a></li>
+            <li><a href="https://music.amazon.com/podcasts/7a4e6f0e-26c2-49e9-a478-41bd244197d0/PyTorch-Developer-Podcast?" target="_blank">Amazon</a></li>
+          </ul>
+         </div>
         </div>
+        
+        <div class="privacy-policy">
+          <ul>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/terms/" target="_blank">Terms</a></li>
+            <li class="privacy-policy-links">|</li>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/privacy-policy/" target="_blank">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="copyright">
+        <p>© Copyright The Linux Foundation. The PyTorch Foundation is a project of The Linux Foundation.
+          For web site terms of use, trademark policy and other policies applicable to The PyTorch Foundation please see
+          <a href="www.linuxfoundation.org/policies/">www.linuxfoundation.org/policies/</a>. The PyTorch Foundation supports the PyTorch open source
+          project, which has been established as PyTorch Project a Series of LF Projects, LLC. For policies applicable to the PyTorch Project a Series of LF Projects, LLC,
+          please see <a href="www.lfprojects.org/policies/">www.lfprojects.org/policies/</a>.</p>
       </div>
-    </div>
+     </div>
+
   </footer>
 
   <div class="cookie-banner-wrapper">
@@ -617,13 +675,9 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
           <li>
             <a href="https://pytorch.org/ecosystem">Ecosystem</a>
           </li>
-
+            
           <li>
             <a href="https://pytorch.org/mobile">Mobile</a>
-          </li>
-
-          <li>
-            <a href="https://pytorch.org/hub">PyTorch Hub</a>
           </li>
 
           <li>
@@ -656,11 +710,23 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
             </li>
 
             <li>
-              <a href="https://pytorch.org/elastic/">TorchElastic</a>
+              <a href="https://pytorch.org/torcharrow">torcharrow</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/data">TorchData</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchrec">TorchRec</a>
             </li>
 
             <li>
               <a href="https://pytorch.org/serve/">TorchServe</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchx/">TorchX</a>
             </li>
 
             <li>
@@ -671,18 +737,15 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
           <li class="resources-mobile-menu-title">
             Resources
           </li>
-
-          <ul class="resources-mobile-menu-items">
-            <li>
-              <a href="https://pytorch.org/resources">Developer Resources</a>
-            </li>
+            
+           <ul class="resources-mobile-menu-items">
 
             <li>
               <a href="https://pytorch.org/features">About</a>
             </li>
 
             <li>
-              <a href="https://pytorch.org/hub">Models (Beta)</a>
+              <a href="https://pytorch.org/foundation">PyTorch Foundation</a>
             </li>
 
             <li>
@@ -690,7 +753,23 @@ Refer this <a class="reference external" href="https://stackoverflow.com/questio
             </li>
 
             <li>
+              <a href="https://pytorch.org/community-stories">Community Stories</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/resources">Developer Resources</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/events">Events</a>
+            </li>
+
+            <li>
               <a href="https://discuss.pytorch.org/">Forums</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/hub">Models (Beta)</a>
             </li>
           </ul>
 

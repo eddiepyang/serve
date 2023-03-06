@@ -6,10 +6,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>To check branch stability run the sanity suite as follows &mdash; PyTorch/Serve master documentation</title>
+  <title>4. Code Coverage &mdash; PyTorch/Serve master documentation</title>
   
 
   
@@ -27,11 +28,15 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" type="text/css" />
   <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Advanced configuration" href="configuration.html" />
+    <link rel="prev" title="3. Batch Inference with TorchServe" href="batch_inference_with_ts.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -111,12 +116,24 @@
                   <span class="dropdown-title">torchvision</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/elastic/">
-                  <span class="dropdown-title">TorchElastic</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torcharrow">
+                  <span class="dropdown-title">torcharrow</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/data">
+                  <span class="dropdown-title">TorchData</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchrec">
+                  <span class="dropdown-title">TorchRec</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/serve/">
                   <span class="dropdown-title">TorchServe</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchx/">
+                  <span class="dropdown-title">TorchX</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/xla">
@@ -136,13 +153,25 @@
                   <span class="dropdown-title">About</span>
                   <p>Learn about PyTorch’s features and capabilities</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/foundation">
+                  <span class="dropdown-title">PyTorch Foundation</span>
+                  <p>Learn about the PyTorch foundation</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/#community-module">
                   <span class="dropdown-title">Community</span>
                   <p>Join the PyTorch developer community to contribute, learn, and get your questions answered.</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/community-stories">
+                  <span class="dropdown-title">Community Stories</span>
+                  <p>Learn how our community solves real, everyday machine learning problems with PyTorch.</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/resources">
                   <span class="dropdown-title">Developer Resources</span>
                   <p>Find resources and get questions answered</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/events">
+                  <span class="dropdown-title">Events</span>
+                  <p>Find events, webinars, and podcasts</p>
                 </a>
                 <a class="nav-dropdown-item" href="https://discuss.pytorch.org/" target="_blank">
                   <span class="dropdown-title">Forums</span>
@@ -157,7 +186,7 @@
           </li>
 
           <li>
-            <a href="https://github.com/pytorch/pytorch">Github</a>
+            <a href="https://github.com/pytorch/pytorch">GitHub</a>
           </li>
         </ul>
       </div>
@@ -216,20 +245,48 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">To check branch stability run the sanity suite as follows</a></li>
-<li><a class="reference internal" href="#to-run-frontend-build-suite-run-following-command">To run frontend build suite run following command</a></li>
-<li><a class="reference internal" href="#to-run-backend-pytest-suite-run-following-command">To run backend pytest suite run following command</a></li>
-<li><a class="reference internal" href="#to-run-python-linting-on-ts-package-run-following-command">To run python linting on <code class="docutils literal notranslate"><span class="pre">ts</span></code> package run following command</a></li>
-<li><a class="reference internal" href="#to-run-pytest-suite-on-model-archiver-run-following-command">To run pytest suite on model-archiver run following command</a></li>
-<li><a class="reference internal" href="#to-run-it-suite-on-model-archiver-run-following-command">To run IT suite on model-archiver run following command</a></li>
-<li><a class="reference internal" href="#to-run-the-markdown-link-check-run-following-command">To run the markdown link check run following command</a><ul>
-<li><a class="reference internal" href="#install-markdown-link-checker-dependencies">Install markdown link checker dependencies</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">2. Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_inference_with_ts.html">3. Batch Inference with TorchServe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Code Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">5. Advanced configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_service.html">6. Custom Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="default_handlers.html">7. TorchServe default inference handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">8. Logging in Torchserve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">9. TorchServe Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_zoo.html">10. Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request_envelopes.html">11. Request Envelopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">12. Running TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshot.html">13. TorchServe model snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx/requirements.html">14. cf. https://github.com/ryanfox/sphinx-markdown-tables/issues/36</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_win_native.html">15. TorchServe on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_wsl.html">16. TorchServe on Windows Subsystem for Linux (WSL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">17. Torchserve Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">18. TorchServe Workflows</a></li>
 </ul>
-</li>
+<p class="caption"><span class="caption-text">Service APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference_api.html">Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_api.html">Management API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_api.html">Metrics API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
 </ul>
-</div>
+<p class="caption"><span class="caption-text">Developer APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.html">ts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.html">ts.torch_handler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.metrics.html">ts.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.model_service.html">ts.model_service package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.protocol.html">ts.protocol package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">serve</a></li>
+</ul>
+
             
           
         </div>
@@ -260,7 +317,7 @@
   <ul class="pytorch-breadcrumbs">
     
       <li>
-        <a href="index.html">
+        <a href="contents.html">
           
             Docs
           
@@ -268,7 +325,7 @@
       </li>
 
         
-      <li>To check branch stability run the sanity suite as follows</li>
+      <li><span class="section-number">4. </span>Code Coverage</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
@@ -300,35 +357,37 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <div class="section" id="to-check-branch-stability-run-the-sanity-suite-as-follows">
-<h1>To check branch stability run the sanity suite as follows<a class="headerlink" href="#to-check-branch-stability-run-the-sanity-suite-as-follows" title="Permalink to this headline">¶</a></h1>
+  <section id="code-coverage">
+<h1><span class="section-number">4. </span>Code Coverage<a class="headerlink" href="#code-coverage" title="Permalink to this headline">¶</a></h1>
+<section id="to-check-branch-stability-run-the-sanity-suite-as-follows">
+<h2><span class="section-number">4.1. </span>To check branch stability run the sanity suite as follows<a class="headerlink" href="#to-check-branch-stability-run-the-sanity-suite-as-follows" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Install dependencies (if not already installed)
 For CPU:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ts_scripts/install_dependencies.py --environment<span class="o">=</span>dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>ts_scripts/install_dependencies.py<span class="w"> </span>--environment<span class="o">=</span>dev
 </pre></div>
 </div>
 <p>For GPU</p>
 <ul class="simple">
 <li><p>Install dependencies (if not already installed)</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ts_scripts/install_dependencies.py --environment<span class="o">=</span>dev --cuda<span class="o">=</span>cu110
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>ts_scripts/install_dependencies.py<span class="w"> </span>--environment<span class="o">=</span>dev<span class="w"> </span>--cuda<span class="o">=</span>cu102
 </pre></div>
 </div>
 <blockquote>
-<div><p>Supported cuda versions as cu110, cu102, cu101, cu92</p>
+<div><p>Supported cuda versions as cu117, cu116, cu113, cu111, cu102, cu101, cu92</p>
 </div></blockquote>
 </li>
 <li><p>Execute sanity suite</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./torchserve_sanity.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>./torchserve_sanity.py
 </pre></div>
 </div>
 </li>
 </ul>
-</div>
-<div class="section" id="to-run-frontend-build-suite-run-following-command">
-<h1>To run frontend build suite run following command<a class="headerlink" href="#to-run-frontend-build-suite-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frontend/gradlew -p frontend clean build
+</section>
+<section id="to-run-frontend-build-suite-run-following-command">
+<h2><span class="section-number">4.2. </span>To run frontend build suite run following command<a class="headerlink" href="#to-run-frontend-build-suite-run-following-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frontend/gradlew<span class="w"> </span>-p<span class="w"> </span>frontend<span class="w"> </span>clean<span class="w"> </span>build
 </pre></div>
 </div>
 <p>TorchServe frontend build suite consists of :</p>
@@ -339,42 +398,42 @@ For CPU:</p>
 <li><p>UT</p></li>
 </ul>
 <p>The reports are generated at following path : <code class="docutils literal notranslate"><span class="pre">frontend/server/build/reports</span></code></p>
-</div>
-<div class="section" id="to-run-backend-pytest-suite-run-following-command">
-<h1>To run backend pytest suite run following command<a class="headerlink" href="#to-run-backend-pytest-suite-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest --cov-report html:htmlcov --cov<span class="o">=</span>ts/ ts/tests/unit_tests/
+</section>
+<section id="to-run-backend-pytest-suite-run-following-command">
+<h2><span class="section-number">4.3. </span>To run backend pytest suite run following command<a class="headerlink" href="#to-run-backend-pytest-suite-run-following-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--cov-report<span class="w"> </span>html:htmlcov<span class="w"> </span>--cov<span class="o">=</span>ts/<span class="w"> </span>ts/tests/unit_tests/
 </pre></div>
 </div>
 <p>The reports are generated at following path : <code class="docutils literal notranslate"><span class="pre">htmlcov/</span></code></p>
-</div>
-<div class="section" id="to-run-python-linting-on-ts-package-run-following-command">
-<h1>To run python linting on <code class="docutils literal notranslate"><span class="pre">ts</span></code> package run following command<a class="headerlink" href="#to-run-python-linting-on-ts-package-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pylint -rn --rcfile<span class="o">=</span>./ts/tests/pylintrc ts/.
+</section>
+<section id="to-run-python-linting-on-ts-package-run-following-command">
+<h2><span class="section-number">4.4. </span>To run python linting on <code class="docutils literal notranslate"><span class="pre">ts</span></code> package run following command<a class="headerlink" href="#to-run-python-linting-on-ts-package-run-following-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pylint<span class="w"> </span>-rn<span class="w"> </span>--rcfile<span class="o">=</span>./ts/tests/pylintrc<span class="w"> </span>ts/.
 </pre></div>
 </div>
-</div>
-<div class="section" id="to-run-pytest-suite-on-model-archiver-run-following-command">
-<h1>To run pytest suite on model-archiver run following command<a class="headerlink" href="#to-run-pytest-suite-on-model-archiver-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> model-archiver
-python -m pytest --cov-report html:htmlcov_ut --cov<span class="o">=</span>model_archiver/ model_archiver/tests/unit_tests/
+</section>
+<section id="to-run-pytest-suite-on-model-archiver-run-following-command">
+<h2><span class="section-number">4.5. </span>To run pytest suite on model-archiver run following command<a class="headerlink" href="#to-run-pytest-suite-on-model-archiver-run-following-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>model-archiver
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--cov-report<span class="w"> </span>html:htmlcov_ut<span class="w"> </span>--cov<span class="o">=</span>model_archiver/<span class="w"> </span>model_archiver/tests/unit_tests/
 </pre></div>
 </div>
 <p>The reports are generated at following path : <code class="docutils literal notranslate"><span class="pre">model-archiver/htmlcov_ut/</span></code></p>
-</div>
-<div class="section" id="to-run-it-suite-on-model-archiver-run-following-command">
-<h1>To run IT suite on model-archiver run following command<a class="headerlink" href="#to-run-it-suite-on-model-archiver-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> model-archiver
-pip install .
-python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model_archiver/ model_archiver/tests/integ_tests/
+</section>
+<section id="to-run-it-suite-on-model-archiver-run-following-command">
+<h2><span class="section-number">4.6. </span>To run IT suite on model-archiver run following command<a class="headerlink" href="#to-run-it-suite-on-model-archiver-run-following-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>model-archiver
+pip<span class="w"> </span>install<span class="w"> </span>.
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--cov-report<span class="w"> </span>html:htmlcov_it<span class="w"> </span>--cov<span class="o">=</span>model_archiver/<span class="w"> </span>model_archiver/tests/integ_tests/
 </pre></div>
 </div>
 <p>The reports are generated at following path : <code class="docutils literal notranslate"><span class="pre">model-archiver/htmlcov_it/</span></code></p>
 <p><strong>Note</strong>: All the above commands needs to be excuted from serve home</p>
-</div>
-<div class="section" id="to-run-the-markdown-link-check-run-following-command">
-<h1>To run the markdown link check run following command<a class="headerlink" href="#to-run-the-markdown-link-check-run-following-command" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install-markdown-link-checker-dependencies">
-<h2>Install markdown link checker dependencies<a class="headerlink" href="#install-markdown-link-checker-dependencies" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="to-run-the-markdown-link-check-run-following-command">
+<h2><span class="section-number">4.7. </span>To run the markdown link check run following command<a class="headerlink" href="#to-run-the-markdown-link-check-run-following-command" title="Permalink to this headline">¶</a></h2>
+<section id="install-markdown-link-checker-dependencies">
+<h3><span class="section-number">4.7.1. </span>Install markdown link checker dependencies<a class="headerlink" href="#install-markdown-link-checker-dependencies" title="Permalink to this headline">¶</a></h3>
 <p>Run following commands to install node and <a class="reference external" href="https://github.com/tcort/markdown-link-check/"><code class="docutils literal notranslate"><span class="pre">markdown-link-check</span></code></a> npm package.</p>
 <ul class="simple">
 <li><p>Install node</p></li>
@@ -400,14 +459,24 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for i in **/*.md; do markdown-link-check $i --config link_check_config.json; done;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
              </article>
              
             </div>
             <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="5. Advanced configuration" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="batch_inference_with_ts.html" class="btn btn-neutral" title="3. Batch Inference with TorchServe" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
   
 
   
@@ -437,14 +506,17 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">To check branch stability run the sanity suite as follows</a></li>
-<li><a class="reference internal" href="#to-run-frontend-build-suite-run-following-command">To run frontend build suite run following command</a></li>
-<li><a class="reference internal" href="#to-run-backend-pytest-suite-run-following-command">To run backend pytest suite run following command</a></li>
-<li><a class="reference internal" href="#to-run-python-linting-on-ts-package-run-following-command">To run python linting on <code class="docutils literal notranslate"><span class="pre">ts</span></code> package run following command</a></li>
-<li><a class="reference internal" href="#to-run-pytest-suite-on-model-archiver-run-following-command">To run pytest suite on model-archiver run following command</a></li>
-<li><a class="reference internal" href="#to-run-it-suite-on-model-archiver-run-following-command">To run IT suite on model-archiver run following command</a></li>
-<li><a class="reference internal" href="#to-run-the-markdown-link-check-run-following-command">To run the markdown link check run following command</a><ul>
-<li><a class="reference internal" href="#install-markdown-link-checker-dependencies">Install markdown link checker dependencies</a></li>
+<li><a class="reference internal" href="#">4. Code Coverage</a><ul>
+<li><a class="reference internal" href="#to-check-branch-stability-run-the-sanity-suite-as-follows">4.1. To check branch stability run the sanity suite as follows</a></li>
+<li><a class="reference internal" href="#to-run-frontend-build-suite-run-following-command">4.2. To run frontend build suite run following command</a></li>
+<li><a class="reference internal" href="#to-run-backend-pytest-suite-run-following-command">4.3. To run backend pytest suite run following command</a></li>
+<li><a class="reference internal" href="#to-run-python-linting-on-ts-package-run-following-command">4.4. To run python linting on <code class="docutils literal notranslate"><span class="pre">ts</span></code> package run following command</a></li>
+<li><a class="reference internal" href="#to-run-pytest-suite-on-model-archiver-run-following-command">4.5. To run pytest suite on model-archiver run following command</a></li>
+<li><a class="reference internal" href="#to-run-it-suite-on-model-archiver-run-following-command">4.6. To run IT suite on model-archiver run following command</a></li>
+<li><a class="reference internal" href="#to-run-the-markdown-link-check-run-following-command">4.7. To run the markdown link check run following command</a><ul>
+<li><a class="reference internal" href="#install-markdown-link-checker-dependencies">4.7.1. Install markdown link checker dependencies</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -462,11 +534,12 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
 
      
        <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
          <script src="_static/jquery.js"></script>
          <script src="_static/underscore.js"></script>
          <script src="_static/doctools.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
+         <script src="_static/katex.min.js"></script>
+         <script src="_static/auto-render.min.js"></script>
          <script src="_static/katex_autorenderer.js"></script>
      
 
@@ -538,50 +611,43 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
           </ul>
         </div>
 
-        <div class="footer-links-col follow-us-col">
+        <div class="footer-links-col">
           <ul>
-            <li class="list-title">Stay Connected</li>
-            <li>
-              <div id="mc_embed_signup">
-                <form
-                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
-                  method="post"
-                  id="mc-embedded-subscribe-form"
-                  name="mc-embedded-subscribe-form"
-                  class="email-subscribe-form validate"
-                  target="_blank"
-                  novalidate>
-                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
-                    <div class="mc-field-group">
-                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
-                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
-                    </div>
-
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
-
-                    <div class="clear">
-                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-            </li>
-          </ul>
-
-          <div class="footer-social-icons">
-            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
-            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
-            <a href="https://www.youtube.com/pytorch" target="_blank" class="youtube"></a>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://www.facebook.com/pytorch" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/pytorch" target="_blank">Twitter</a></li>
+            <li><a href="https://www.youtube.com/pytorch" target="_blank">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/company/pytorch" target="_blank">LinkedIn</a></li>
+          </ul>  
           </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">PyTorch Podcasts</li>
+            <li><a href="https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5" target="_blank">Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/pytorch-developer-podcast/id1566080008" target="_blank">Apple</a></li>
+            <li><a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9PQjVGa0lsOA%3D%3D" target="_blank">Google</a></li>
+            <li><a href="https://music.amazon.com/podcasts/7a4e6f0e-26c2-49e9-a478-41bd244197d0/PyTorch-Developer-Podcast?" target="_blank">Amazon</a></li>
+          </ul>
+         </div>
         </div>
+        
+        <div class="privacy-policy">
+          <ul>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/terms/" target="_blank">Terms</a></li>
+            <li class="privacy-policy-links">|</li>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/privacy-policy/" target="_blank">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="copyright">
+        <p>© Copyright The Linux Foundation. The PyTorch Foundation is a project of The Linux Foundation.
+          For web site terms of use, trademark policy and other policies applicable to The PyTorch Foundation please see
+          <a href="www.linuxfoundation.org/policies/">www.linuxfoundation.org/policies/</a>. The PyTorch Foundation supports the PyTorch open source
+          project, which has been established as PyTorch Project a Series of LF Projects, LLC. For policies applicable to the PyTorch Project a Series of LF Projects, LLC,
+          please see <a href="www.lfprojects.org/policies/">www.lfprojects.org/policies/</a>.</p>
       </div>
-    </div>
+     </div>
+
   </footer>
 
   <div class="cookie-banner-wrapper">
@@ -615,13 +681,9 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
           <li>
             <a href="https://pytorch.org/ecosystem">Ecosystem</a>
           </li>
-
+            
           <li>
             <a href="https://pytorch.org/mobile">Mobile</a>
-          </li>
-
-          <li>
-            <a href="https://pytorch.org/hub">PyTorch Hub</a>
           </li>
 
           <li>
@@ -654,11 +716,23 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
             </li>
 
             <li>
-              <a href="https://pytorch.org/elastic/">TorchElastic</a>
+              <a href="https://pytorch.org/torcharrow">torcharrow</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/data">TorchData</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchrec">TorchRec</a>
             </li>
 
             <li>
               <a href="https://pytorch.org/serve/">TorchServe</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchx/">TorchX</a>
             </li>
 
             <li>
@@ -669,18 +743,15 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
           <li class="resources-mobile-menu-title">
             Resources
           </li>
-
-          <ul class="resources-mobile-menu-items">
-            <li>
-              <a href="https://pytorch.org/resources">Developer Resources</a>
-            </li>
+            
+           <ul class="resources-mobile-menu-items">
 
             <li>
               <a href="https://pytorch.org/features">About</a>
             </li>
 
             <li>
-              <a href="https://pytorch.org/hub">Models (Beta)</a>
+              <a href="https://pytorch.org/foundation">PyTorch Foundation</a>
             </li>
 
             <li>
@@ -688,7 +759,23 @@ python -m pytest --cov-report html:htmlcov_it --cov<span class="o">=</span>model
             </li>
 
             <li>
+              <a href="https://pytorch.org/community-stories">Community Stories</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/resources">Developer Resources</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/events">Events</a>
+            </li>
+
+            <li>
               <a href="https://discuss.pytorch.org/">Forums</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/hub">Models (Beta)</a>
             </li>
           </ul>
 

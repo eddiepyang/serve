@@ -6,10 +6,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Troubleshooting guide. &mdash; PyTorch/Serve master documentation</title>
+  <title>2. Troubleshooting Guide &mdash; PyTorch/Serve master documentation</title>
   
 
   
@@ -27,11 +28,15 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" type="text/css" />
   <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Batch Inference with TorchServe" href="batch_inference_with_ts.html" />
+    <link rel="prev" title="1. TorchServe" href="index.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -111,12 +116,24 @@
                   <span class="dropdown-title">torchvision</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/elastic/">
-                  <span class="dropdown-title">TorchElastic</span>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torcharrow">
+                  <span class="dropdown-title">torcharrow</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/data">
+                  <span class="dropdown-title">TorchData</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchrec">
+                  <span class="dropdown-title">TorchRec</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/serve/">
                   <span class="dropdown-title">TorchServe</span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/torchx/">
+                  <span class="dropdown-title">TorchX</span>
                   <p></p>
                 </a>
                 <a class="doc-dropdown-option nav-dropdown-item" href="https://pytorch.org/xla">
@@ -136,13 +153,25 @@
                   <span class="dropdown-title">About</span>
                   <p>Learn about PyTorch’s features and capabilities</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/foundation">
+                  <span class="dropdown-title">PyTorch Foundation</span>
+                  <p>Learn about the PyTorch foundation</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/#community-module">
                   <span class="dropdown-title">Community</span>
                   <p>Join the PyTorch developer community to contribute, learn, and get your questions answered.</p>
                 </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/community-stories">
+                  <span class="dropdown-title">Community Stories</span>
+                  <p>Learn how our community solves real, everyday machine learning problems with PyTorch.</p>
+                </a>
                 <a class="nav-dropdown-item" href="https://pytorch.org/resources">
                   <span class="dropdown-title">Developer Resources</span>
                   <p>Find resources and get questions answered</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://pytorch.org/events">
+                  <span class="dropdown-title">Events</span>
+                  <p>Find events, webinars, and podcasts</p>
                 </a>
                 <a class="nav-dropdown-item" href="https://discuss.pytorch.org/" target="_blank">
                   <span class="dropdown-title">Forums</span>
@@ -157,7 +186,7 @@
           </li>
 
           <li>
-            <a href="https://github.com/pytorch/pytorch">Github</a>
+            <a href="https://github.com/pytorch/pytorch">GitHub</a>
           </li>
         </ul>
       </div>
@@ -216,40 +245,48 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Troubleshooting guide.</a><ul>
-<li><a class="reference internal" href="#deployment-and-config-issues">Deployment and config issues</a><ul>
-<li><a class="reference internal" href="#failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use">“Failed to bind to address: http://127.0.0.1:8080”, port 8080/8081 already in use.</a></li>
-<li><a class="reference internal" href="#java-lang-nosuchmethoderror-when-starting-torchserve-473">“java.lang.NoSuchMethodError” when starting Torchserve.[473]</a></li>
-<li><a class="reference internal" href="#unable-to-send-big-files-for-inference-request">Unable to send big files for inference request?</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. TorchServe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Troubleshooting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_inference_with_ts.html">3. Batch Inference with TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_coverage.html">4. Code Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">5. Advanced configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_service.html">6. Custom Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="default_handlers.html">7. TorchServe default inference handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">8. Logging in Torchserve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">9. TorchServe Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_zoo.html">10. Model Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request_envelopes.html">11. Request Envelopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">12. Running TorchServe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshot.html">13. TorchServe model snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx/requirements.html">14. cf. https://github.com/ryanfox/sphinx-markdown-tables/issues/36</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_win_native.html">15. TorchServe on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchserve_on_wsl.html">16. TorchServe on Windows Subsystem for Linux (WSL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">17. Torchserve Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">18. TorchServe Workflows</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#snapshot-related-issues">Snapshot related issues</a><ul>
-<li><a class="reference internal" href="#how-to-disable-snapshot-feature">How to disable Snapshot feature?</a></li>
-<li><a class="reference internal" href="#torchserve-stopped-after-restart-with-invalidsnapshotexception-exception">Torchserve stopped after restart with “InvalidSnapshotException” exception.</a></li>
-<li><a class="reference internal" href="#where-are-snapshot-config-files-stored">Where are snapshot config files stored?</a></li>
-<li><a class="reference internal" href="#how-to-change-temp-directory">How to change Temp Directory?</a></li>
+<p class="caption"><span class="caption-text">Service APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="grpc_api.html">TorchServe gRPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference_api.html">Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_api.html">Management API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics_api.html">Metrics API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest_api.html">TorchServe REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_inference_api.html">Workflow Inference API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_management_api.html">Management API</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#api-related-issues">API related issues</a><ul>
-<li><a class="reference internal" href="#register-model-failed-with-exception-conflictstatusexception-error-code-409">Register model: Failed with exception “ConflictStatusException” &amp; error code 409.</a></li>
-<li><a class="reference internal" href="#register-model-failed-with-exception-downloadmodelexception-error-code-400">Register model: Failed with exception “DownloadModelException” &amp; error code 400.</a></li>
-<li><a class="reference internal" href="#register-model-failed-with-exception-modelnotfoundexception-error-code-404">Register model: Failed with exception “ModelNotFoundException” &amp; error code 404.</a></li>
-<li><a class="reference internal" href="#inference-request-failed-with-exception-serviceunavailableexception-error-code-503">Inference request: Failed with exception “ServiceUnavailableException” &amp; error code 503.</a></li>
+<p class="caption"><span class="caption-text">Developer APIs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.html">ts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.request_envelope.html">ts.torch_handler.request_envelope package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.torch_handler.html">ts.torch_handler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.metrics.html">ts.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.model_service.html">ts.model_service package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ts.protocol.html">ts.protocol package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">serve</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#model-archiver">Model-archiver</a><ul>
-<li><a class="reference internal" href="#how-can-add-model-specific-custom-dependency">How can add model  specific custom dependency?</a></li>
-<li><a class="reference internal" href="#how-can-i-resolve-model-specific-python-dependency">How can I resolve model  specific python dependency?</a></li>
-<li><a class="reference internal" href="#i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed">I have added  requirements.txt in my mar file but the packages listed are not getting installed.</a></li>
-<li><a class="reference internal" href="#backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error">Backend worker monitoring thread interrupted or backend worker process died error.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
@@ -280,7 +317,7 @@
   <ul class="pytorch-breadcrumbs">
     
       <li>
-        <a href="index.html">
+        <a href="contents.html">
           
             Docs
           
@@ -288,7 +325,7 @@
       </li>
 
         
-      <li>Troubleshooting guide.</li>
+      <li><span class="section-number">2. </span>Troubleshooting Guide</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
@@ -320,8 +357,8 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <div class="section" id="troubleshooting-guide">
-<h1>Troubleshooting guide.<a class="headerlink" href="#troubleshooting-guide" title="Permalink to this headline">¶</a></h1>
+  <section id="troubleshooting-guide">
+<h1><span class="section-number">2. </span>Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permalink to this headline">¶</a></h1>
 <p>Refer to this section for common issues faced while deploying your Pytorch models using Torchserve and their corresponding troubleshooting steps.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#deployment-and-config-issues">Deployment and config issues</a></p></li>
@@ -329,23 +366,23 @@
 <li><p><a class="reference external" href="#api-relate-issues">API related issues</a></p></li>
 <li><p><a class="reference external" href="#model-archiver">Model-archiver</a></p></li>
 </ul>
-<div class="section" id="deployment-and-config-issues">
-<h2>Deployment and config issues<a class="headerlink" href="#deployment-and-config-issues" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use">
-<h3>“Failed to bind to address: http://127.0.0.1:8080”, port 8080/8081 already in use.<a class="headerlink" href="#failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use" title="Permalink to this headline">¶</a></h3>
+<section id="deployment-and-config-issues">
+<h2><span class="section-number">2.1. </span>Deployment and config issues<a class="headerlink" href="#deployment-and-config-issues" title="Permalink to this headline">¶</a></h2>
+<section id="failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use">
+<h3><span class="section-number">2.1.1. </span>“Failed to bind to address: <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8080</span></code>”, port 8080/8081 already in use.<a class="headerlink" href="#failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use" title="Permalink to this headline">¶</a></h3>
 <p>Usually, the port number 8080/8081 is already used by some other application or service, it can be verified by using cmd <code class="docutils literal notranslate"><span class="pre">ss</span> <span class="pre">-ntl</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">8080</span></code>. There are two ways to troubleshoot this issue either kill the process which is using port 8080/8081 or run Torchserve on different ports other than 8080 &amp; 8081.</p>
-<p>Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/configuration.md">configuration.md</a> for more details.</p>
+<p>Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/configuration">configuration.md</a> for more details.</p>
 <p>Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/542">542</a>]</p>
-</div>
-<div class="section" id="java-lang-nosuchmethoderror-when-starting-torchserve-473">
-<h3>“java.lang.NoSuchMethodError” when starting Torchserve.[<a class="reference external" href="https://github.com/pytorch/serve/issues/473">473</a>]<a class="headerlink" href="#java-lang-nosuchmethoderror-when-starting-torchserve-473" title="Permalink to this headline">¶</a></h3>
-<p>This error usually occurs when Java 11 is not installed or used. Java 11 is required by Torchserve and older java versions are not supported.</p>
+</section>
+<section id="java-lang-nosuchmethoderror-when-starting-torchserve-473">
+<h3><span class="section-number">2.1.2. </span>“java.lang.NoSuchMethodError” when starting Torchserve.[<a class="reference external" href="https://github.com/pytorch/serve/issues/473">473</a>]<a class="headerlink" href="#java-lang-nosuchmethoderror-when-starting-torchserve-473" title="Permalink to this headline">¶</a></h3>
+<p>This error usually occurs when Java 17 is not installed or used. Java 17 is required by Torchserve and older java versions are not supported.</p>
 <p>Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/473">#473</a>]</p>
-</div>
-<div class="section" id="unable-to-send-big-files-for-inference-request">
-<h3>Unable to send big files for inference request?<a class="headerlink" href="#unable-to-send-big-files-for-inference-request" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="unable-to-send-big-files-for-inference-request">
+<h3><span class="section-number">2.1.3. </span>Unable to send big files for inference request?<a class="headerlink" href="#unable-to-send-big-files-for-inference-request" title="Permalink to this headline">¶</a></h3>
 <p>The default max request size and response size is roughly 6.5 Mb. Hence any file size greater than 6.5mb cannot be uploaded.
-To resolve this update <code class="docutils literal notranslate"><span class="pre">max_request_size</span></code> and <code class="docutils literal notranslate"><span class="pre">max_response_size</span></code> in a config.properties file and start the torchserve with this config file.</p>
+To resolve this update <code class="docutils literal notranslate"><span class="pre">max_request_size</span></code> and <code class="docutils literal notranslate"><span class="pre">max_response_size</span></code> in a config.properties file and start torchserve with this config file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat config.properties
 max_request_size=&lt;request size in bytes&gt;
 max_response_size=&lt;response size in bytes&gt;
@@ -353,89 +390,98 @@ $ torchserve --start --model-store model_store --ts-config /path/to/config.prope
 </pre></div>
 </div>
 <p>You can also use environment variables to set these values.
-Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/configuration.md">configuration.md</a> for more details.
+Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/configuration">configuration.md</a> for more details.
 Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/335">#335</a>]</p>
-</div>
-</div>
-<div class="section" id="snapshot-related-issues">
-<h2>Snapshot related issues<a class="headerlink" href="#snapshot-related-issues" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="how-to-disable-snapshot-feature">
-<h3>How to disable Snapshot feature?<a class="headerlink" href="#how-to-disable-snapshot-feature" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="snapshot-related-issues">
+<h2><span class="section-number">2.2. </span>Snapshot related issues<a class="headerlink" href="#snapshot-related-issues" title="Permalink to this headline">¶</a></h2>
+<section id="how-to-disable-snapshot-feature">
+<h3><span class="section-number">2.2.1. </span>How to disable Snapshot feature?<a class="headerlink" href="#how-to-disable-snapshot-feature" title="Permalink to this headline">¶</a></h3>
 <p>By default, the snapshot feature is enabled. To disable snapshot feature start torchserve using –ncs flag or specify config file using –ts-config path/to/config
 Relevant issues:[<a class="reference external" href="https://github.com/pytorch/serve/issues/383">#383</a>, <a class="reference external" href="https://github.com/pytorch/serve/issues/512">#512</a>]</p>
-</div>
-<div class="section" id="torchserve-stopped-after-restart-with-invalidsnapshotexception-exception">
-<h3>Torchserve stopped after restart with “InvalidSnapshotException” exception.<a class="headerlink" href="#torchserve-stopped-after-restart-with-invalidsnapshotexception-exception" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="torchserve-stopped-after-restart-with-invalidsnapshotexception-exception">
+<h3><span class="section-number">2.2.2. </span>Torchserve stopped after restart with “InvalidSnapshotException” exception.<a class="headerlink" href="#torchserve-stopped-after-restart-with-invalidsnapshotexception-exception" title="Permalink to this headline">¶</a></h3>
 <p>Torchserve when restarted uses the last snapshot config file to restore its state of models and their number of workers. When “InvalidSnapshotException” is thrown then the model store is in an inconsistent state as compared with the snapshot. To resolve this the snapshot config files can be removed or torchserve can be started with specific config file using –ts-config path/to/config.
-Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/snapshot.md">snapshot.md</a> for more details.</p>
-</div>
-<div class="section" id="where-are-snapshot-config-files-stored">
-<h3>Where are snapshot config files stored?<a class="headerlink" href="#where-are-snapshot-config-files-stored" title="Permalink to this headline">¶</a></h3>
+Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/snapshot">snapshot.md</a> for more details.</p>
+</section>
+<section id="where-are-snapshot-config-files-stored">
+<h3><span class="section-number">2.2.3. </span>Where are snapshot config files stored?<a class="headerlink" href="#where-are-snapshot-config-files-stored" title="Permalink to this headline">¶</a></h3>
 <p>The snapshots are by default in <code class="docutils literal notranslate"><span class="pre">{LOG_LOCATION}\config</span></code> directory, where <code class="docutils literal notranslate"><span class="pre">{LOG_LOCATION}</span></code> is a system environment variable that can be used by TorchServe. If this variable is not set, the snapshot is stored in <code class="docutils literal notranslate"><span class="pre">.\log\config</span></code> directory
-Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/snapshot.md">snapshot.md</a> for more details.</p>
-</div>
-<div class="section" id="how-to-change-temp-directory">
-<h3>How to change Temp Directory?<a class="headerlink" href="#how-to-change-temp-directory" title="Permalink to this headline">¶</a></h3>
+Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/snapshot">snapshot.md</a> for more details.</p>
+</section>
+<section id="how-to-change-temp-directory">
+<h3><span class="section-number">2.2.4. </span>How to change Temp Directory?<a class="headerlink" href="#how-to-change-temp-directory" title="Permalink to this headline">¶</a></h3>
 <p>You can export TEMP environment variable to the desired path. This path will be used by TorchServe to extract the model-archives content.
 Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/654">#654</a>]</p>
-</div>
-</div>
-<div class="section" id="api-related-issues">
-<h2>API related issues<a class="headerlink" href="#api-related-issues" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="register-model-failed-with-exception-conflictstatusexception-error-code-409">
-<h3>Register model: Failed with exception “ConflictStatusException” &amp; error code 409.<a class="headerlink" href="#register-model-failed-with-exception-conflictstatusexception-error-code-409" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="api-related-issues">
+<h2><span class="section-number">2.3. </span>API related issues<a class="headerlink" href="#api-related-issues" title="Permalink to this headline">¶</a></h2>
+<section id="register-model-failed-with-exception-conflictstatusexception-error-code-409">
+<h3><span class="section-number">2.3.1. </span>Register model: Failed with exception “ConflictStatusException” &amp; error code 409.<a class="headerlink" href="#register-model-failed-with-exception-conflictstatusexception-error-code-409" title="Permalink to this headline">¶</a></h3>
 <p>This gives a clear message that the model we are trying to register conflicts with an already existing model. To resolve this change the model version when creating a mar file or register a model with a different name.
 Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/500">#500</a>]</p>
-</div>
-<div class="section" id="register-model-failed-with-exception-downloadmodelexception-error-code-400">
-<h3>Register model: Failed with exception “DownloadModelException” &amp; error code 400.<a class="headerlink" href="#register-model-failed-with-exception-downloadmodelexception-error-code-400" title="Permalink to this headline">¶</a></h3>
-<p>Torchserve was unable to download the mar file in this case. To resolve this check whether the given URL is accessible publically.</p>
-</div>
-<div class="section" id="register-model-failed-with-exception-modelnotfoundexception-error-code-404">
-<h3>Register model: Failed with exception “ModelNotFoundException” &amp; error code 404.<a class="headerlink" href="#register-model-failed-with-exception-modelnotfoundexception-error-code-404" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="register-model-failed-with-exception-downloadmodelexception-error-code-400">
+<h3><span class="section-number">2.3.2. </span>Register model: Failed with exception “DownloadModelException” &amp; error code 400.<a class="headerlink" href="#register-model-failed-with-exception-downloadmodelexception-error-code-400" title="Permalink to this headline">¶</a></h3>
+<p>Torchserve was unable to download the mar file in this case. To resolve this check whether the given URL is accessible publicly.</p>
+</section>
+<section id="register-model-failed-with-exception-modelnotfoundexception-error-code-404">
+<h3><span class="section-number">2.3.3. </span>Register model: Failed with exception “ModelNotFoundException” &amp; error code 404.<a class="headerlink" href="#register-model-failed-with-exception-modelnotfoundexception-error-code-404" title="Permalink to this headline">¶</a></h3>
 <p>In this case, Torchserve was unable to locate a given mar file in the model store directory. To resolve this check whether the given mar file exists in the model store. Check the mar file name in the POST request to register the model.</p>
-</div>
-<div class="section" id="inference-request-failed-with-exception-serviceunavailableexception-error-code-503">
-<h3>Inference request: Failed with exception “ServiceUnavailableException” &amp; error code 503.<a class="headerlink" href="#inference-request-failed-with-exception-serviceunavailableexception-error-code-503" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="inference-request-failed-with-exception-serviceunavailableexception-error-code-503">
+<h3><span class="section-number">2.3.4. </span>Inference request: Failed with exception “ServiceUnavailableException” &amp; error code 503.<a class="headerlink" href="#inference-request-failed-with-exception-serviceunavailableexception-error-code-503" title="Permalink to this headline">¶</a></h3>
 <p>In this case, the model is registered but there no workers spawned for the model. Use the scale-up API to increase the number of workers. You can verify the number of workers using
 <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-X</span> <span class="pre">GET&quot;http://localhost:8081/models/&lt;model_name&gt;&quot;</span> </code></p>
-</div>
-</div>
-<div class="section" id="model-archiver">
-<h2>Model-archiver<a class="headerlink" href="#model-archiver" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="how-can-add-model-specific-custom-dependency">
-<h3>How can add model  specific custom dependency?<a class="headerlink" href="#how-can-add-model-specific-custom-dependency" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="model-archiver">
+<h2><span class="section-number">2.4. </span>Model-archiver<a class="headerlink" href="#model-archiver" title="Permalink to this headline">¶</a></h2>
+<section id="how-can-add-model-specific-custom-dependency">
+<h3><span class="section-number">2.4.1. </span>How can add model  specific custom dependency?<a class="headerlink" href="#how-can-add-model-specific-custom-dependency" title="Permalink to this headline">¶</a></h3>
 <p>You can add your dependency files using <code class="docutils literal notranslate"><span class="pre">--extra-files</span></code> flag while creating a mar file. These dependency files can be of any type like zip, egg, json etc. You may have to write a custom handler to use these files as required.</p>
 <p>Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/566">#566</a>]</p>
-</div>
-<div class="section" id="how-can-i-resolve-model-specific-python-dependency">
-<h3>How can I resolve model  specific python dependency?<a class="headerlink" href="#how-can-i-resolve-model-specific-python-dependency" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="how-can-i-resolve-model-specific-python-dependency">
+<h3><span class="section-number">2.4.2. </span>How can I resolve model specific python dependency?<a class="headerlink" href="#how-can-i-resolve-model-specific-python-dependency" title="Permalink to this headline">¶</a></h3>
 <p>You can provide a requirements.txt while creating a mar file using “–requirements-file/ -r” flag. You can refer to the <a class="reference external" href="https://github.com/pytorch/serve/tree/master/examples/text_to_speech_synthesizer">waveglow text-to-speech-synthesizer</a> example</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/pytorch/serve/blob/master/examples/text_to_speech_synthesizer/create_mar.sh">waveglow mar creation script</a></p></li>
-<li><p><a class="reference external" href="https://github.com/pytorch/serve/blob/master/examples/text_to_speech_synthesizer/waveglow_handler.py#L57">waveglow handler</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pytorch/serve/blob/2d9c7ccc316f592374943a1963c1057bbe232c9e/examples/text_to_speech_synthesizer/waveglow_handler.py#L49">waveglow handler</a></p></li>
 </ul>
 <p>Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/566">#566</a>]
 Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/model-archiver/README.md#torch-model-archiver-command-line-interface">Torch model archiver cli</a> for more details.</p>
-</div>
-<div class="section" id="i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed">
-<h3>I have added  requirements.txt in my mar file but the packages listed are not getting installed.<a class="headerlink" href="#i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed">
+<h3><span class="section-number">2.4.3. </span>I have added  requirements.txt in my mar file but the packages listed are not getting installed.<a class="headerlink" href="#i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed" title="Permalink to this headline">¶</a></h3>
 <p>By default model specific custom python packages feature is disabled, enable this by setting install_py_dep_per_model to true.
 Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/master/docs/configuration.md#allow-model-specific-custom-python-packages">Allow model specific custom python packages</a> for more details.</p>
-</div>
-<div class="section" id="backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error">
-<h3>Backend worker monitoring thread interrupted or backend worker process died error.<a class="headerlink" href="#backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error" title="Permalink to this headline">¶</a></h3>
-<p>This issue is moslty occurs when the model fails to initialize, which may be due to erroneous code in handler’s initialize function. This error is also observed when there is missing package/module.</p>
+</section>
+<section id="backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error">
+<h3><span class="section-number">2.4.4. </span>Backend worker monitoring thread interrupted or backend worker process died error.<a class="headerlink" href="#backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error" title="Permalink to this headline">¶</a></h3>
+<p>This issue mostly occurs when the model fails to initialize, which may be due to erroneous code in handler’s initialize function. This error is also observed when there is missing package/module.</p>
 <p>Relevant issues: [<a class="reference external" href="https://github.com/pytorch/serve/issues/667">#667</a>, <a class="reference external" href="https://github.com/pytorch/serve/issues/537">#537</a>]</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
              </article>
              
             </div>
             <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="batch_inference_with_ts.html" class="btn btn-neutral float-right" title="3. Batch Inference with TorchServe" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="1. TorchServe" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
   
 
   
@@ -465,32 +511,32 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">Troubleshooting guide.</a><ul>
-<li><a class="reference internal" href="#deployment-and-config-issues">Deployment and config issues</a><ul>
-<li><a class="reference internal" href="#failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use">“Failed to bind to address: http://127.0.0.1:8080”, port 8080/8081 already in use.</a></li>
-<li><a class="reference internal" href="#java-lang-nosuchmethoderror-when-starting-torchserve-473">“java.lang.NoSuchMethodError” when starting Torchserve.[473]</a></li>
-<li><a class="reference internal" href="#unable-to-send-big-files-for-inference-request">Unable to send big files for inference request?</a></li>
+<li><a class="reference internal" href="#">2. Troubleshooting Guide</a><ul>
+<li><a class="reference internal" href="#deployment-and-config-issues">2.1. Deployment and config issues</a><ul>
+<li><a class="reference internal" href="#failed-to-bind-to-address-http-127-0-0-1-8080-port-8080-8081-already-in-use">2.1.1. “Failed to bind to address: <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8080</span></code>”, port 8080/8081 already in use.</a></li>
+<li><a class="reference internal" href="#java-lang-nosuchmethoderror-when-starting-torchserve-473">2.1.2. “java.lang.NoSuchMethodError” when starting Torchserve.[473]</a></li>
+<li><a class="reference internal" href="#unable-to-send-big-files-for-inference-request">2.1.3. Unable to send big files for inference request?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snapshot-related-issues">Snapshot related issues</a><ul>
-<li><a class="reference internal" href="#how-to-disable-snapshot-feature">How to disable Snapshot feature?</a></li>
-<li><a class="reference internal" href="#torchserve-stopped-after-restart-with-invalidsnapshotexception-exception">Torchserve stopped after restart with “InvalidSnapshotException” exception.</a></li>
-<li><a class="reference internal" href="#where-are-snapshot-config-files-stored">Where are snapshot config files stored?</a></li>
-<li><a class="reference internal" href="#how-to-change-temp-directory">How to change Temp Directory?</a></li>
+<li><a class="reference internal" href="#snapshot-related-issues">2.2. Snapshot related issues</a><ul>
+<li><a class="reference internal" href="#how-to-disable-snapshot-feature">2.2.1. How to disable Snapshot feature?</a></li>
+<li><a class="reference internal" href="#torchserve-stopped-after-restart-with-invalidsnapshotexception-exception">2.2.2. Torchserve stopped after restart with “InvalidSnapshotException” exception.</a></li>
+<li><a class="reference internal" href="#where-are-snapshot-config-files-stored">2.2.3. Where are snapshot config files stored?</a></li>
+<li><a class="reference internal" href="#how-to-change-temp-directory">2.2.4. How to change Temp Directory?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-related-issues">API related issues</a><ul>
-<li><a class="reference internal" href="#register-model-failed-with-exception-conflictstatusexception-error-code-409">Register model: Failed with exception “ConflictStatusException” &amp; error code 409.</a></li>
-<li><a class="reference internal" href="#register-model-failed-with-exception-downloadmodelexception-error-code-400">Register model: Failed with exception “DownloadModelException” &amp; error code 400.</a></li>
-<li><a class="reference internal" href="#register-model-failed-with-exception-modelnotfoundexception-error-code-404">Register model: Failed with exception “ModelNotFoundException” &amp; error code 404.</a></li>
-<li><a class="reference internal" href="#inference-request-failed-with-exception-serviceunavailableexception-error-code-503">Inference request: Failed with exception “ServiceUnavailableException” &amp; error code 503.</a></li>
+<li><a class="reference internal" href="#api-related-issues">2.3. API related issues</a><ul>
+<li><a class="reference internal" href="#register-model-failed-with-exception-conflictstatusexception-error-code-409">2.3.1. Register model: Failed with exception “ConflictStatusException” &amp; error code 409.</a></li>
+<li><a class="reference internal" href="#register-model-failed-with-exception-downloadmodelexception-error-code-400">2.3.2. Register model: Failed with exception “DownloadModelException” &amp; error code 400.</a></li>
+<li><a class="reference internal" href="#register-model-failed-with-exception-modelnotfoundexception-error-code-404">2.3.3. Register model: Failed with exception “ModelNotFoundException” &amp; error code 404.</a></li>
+<li><a class="reference internal" href="#inference-request-failed-with-exception-serviceunavailableexception-error-code-503">2.3.4. Inference request: Failed with exception “ServiceUnavailableException” &amp; error code 503.</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#model-archiver">Model-archiver</a><ul>
-<li><a class="reference internal" href="#how-can-add-model-specific-custom-dependency">How can add model  specific custom dependency?</a></li>
-<li><a class="reference internal" href="#how-can-i-resolve-model-specific-python-dependency">How can I resolve model  specific python dependency?</a></li>
-<li><a class="reference internal" href="#i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed">I have added  requirements.txt in my mar file but the packages listed are not getting installed.</a></li>
-<li><a class="reference internal" href="#backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error">Backend worker monitoring thread interrupted or backend worker process died error.</a></li>
+<li><a class="reference internal" href="#model-archiver">2.4. Model-archiver</a><ul>
+<li><a class="reference internal" href="#how-can-add-model-specific-custom-dependency">2.4.1. How can add model  specific custom dependency?</a></li>
+<li><a class="reference internal" href="#how-can-i-resolve-model-specific-python-dependency">2.4.2. How can I resolve model specific python dependency?</a></li>
+<li><a class="reference internal" href="#i-have-added-requirements-txt-in-my-mar-file-but-the-packages-listed-are-not-getting-installed">2.4.3. I have added  requirements.txt in my mar file but the packages listed are not getting installed.</a></li>
+<li><a class="reference internal" href="#backend-worker-monitoring-thread-interrupted-or-backend-worker-process-died-error">2.4.4. Backend worker monitoring thread interrupted or backend worker process died error.</a></li>
 </ul>
 </li>
 </ul>
@@ -510,11 +556,12 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
 
      
        <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
          <script src="_static/jquery.js"></script>
          <script src="_static/underscore.js"></script>
          <script src="_static/doctools.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
+         <script src="_static/katex.min.js"></script>
+         <script src="_static/auto-render.min.js"></script>
          <script src="_static/katex_autorenderer.js"></script>
      
 
@@ -586,50 +633,43 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
           </ul>
         </div>
 
-        <div class="footer-links-col follow-us-col">
+        <div class="footer-links-col">
           <ul>
-            <li class="list-title">Stay Connected</li>
-            <li>
-              <div id="mc_embed_signup">
-                <form
-                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
-                  method="post"
-                  id="mc-embedded-subscribe-form"
-                  name="mc-embedded-subscribe-form"
-                  class="email-subscribe-form validate"
-                  target="_blank"
-                  novalidate>
-                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
-                    <div class="mc-field-group">
-                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
-                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
-                    </div>
-
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
-
-                    <div class="clear">
-                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-            </li>
-          </ul>
-
-          <div class="footer-social-icons">
-            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
-            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
-            <a href="https://www.youtube.com/pytorch" target="_blank" class="youtube"></a>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://www.facebook.com/pytorch" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/pytorch" target="_blank">Twitter</a></li>
+            <li><a href="https://www.youtube.com/pytorch" target="_blank">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/company/pytorch" target="_blank">LinkedIn</a></li>
+          </ul>  
           </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">PyTorch Podcasts</li>
+            <li><a href="https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5" target="_blank">Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/pytorch-developer-podcast/id1566080008" target="_blank">Apple</a></li>
+            <li><a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9PQjVGa0lsOA%3D%3D" target="_blank">Google</a></li>
+            <li><a href="https://music.amazon.com/podcasts/7a4e6f0e-26c2-49e9-a478-41bd244197d0/PyTorch-Developer-Podcast?" target="_blank">Amazon</a></li>
+          </ul>
+         </div>
         </div>
+        
+        <div class="privacy-policy">
+          <ul>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/terms/" target="_blank">Terms</a></li>
+            <li class="privacy-policy-links">|</li>
+            <li class="privacy-policy-links"><a href="https://www.linuxfoundation.org/privacy-policy/" target="_blank">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="copyright">
+        <p>© Copyright The Linux Foundation. The PyTorch Foundation is a project of The Linux Foundation.
+          For web site terms of use, trademark policy and other policies applicable to The PyTorch Foundation please see
+          <a href="www.linuxfoundation.org/policies/">www.linuxfoundation.org/policies/</a>. The PyTorch Foundation supports the PyTorch open source
+          project, which has been established as PyTorch Project a Series of LF Projects, LLC. For policies applicable to the PyTorch Project a Series of LF Projects, LLC,
+          please see <a href="www.lfprojects.org/policies/">www.lfprojects.org/policies/</a>.</p>
       </div>
-    </div>
+     </div>
+
   </footer>
 
   <div class="cookie-banner-wrapper">
@@ -663,13 +703,9 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
           <li>
             <a href="https://pytorch.org/ecosystem">Ecosystem</a>
           </li>
-
+            
           <li>
             <a href="https://pytorch.org/mobile">Mobile</a>
-          </li>
-
-          <li>
-            <a href="https://pytorch.org/hub">PyTorch Hub</a>
           </li>
 
           <li>
@@ -702,11 +738,23 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
             </li>
 
             <li>
-              <a href="https://pytorch.org/elastic/">TorchElastic</a>
+              <a href="https://pytorch.org/torcharrow">torcharrow</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/data">TorchData</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchrec">TorchRec</a>
             </li>
 
             <li>
               <a href="https://pytorch.org/serve/">TorchServe</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/torchx/">TorchX</a>
             </li>
 
             <li>
@@ -717,18 +765,15 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
           <li class="resources-mobile-menu-title">
             Resources
           </li>
-
-          <ul class="resources-mobile-menu-items">
-            <li>
-              <a href="https://pytorch.org/resources">Developer Resources</a>
-            </li>
+            
+           <ul class="resources-mobile-menu-items">
 
             <li>
               <a href="https://pytorch.org/features">About</a>
             </li>
 
             <li>
-              <a href="https://pytorch.org/hub">Models (Beta)</a>
+              <a href="https://pytorch.org/foundation">PyTorch Foundation</a>
             </li>
 
             <li>
@@ -736,7 +781,23 @@ Refer <a class="reference external" href="https://github.com/pytorch/serve/blob/
             </li>
 
             <li>
+              <a href="https://pytorch.org/community-stories">Community Stories</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/resources">Developer Resources</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/events">Events</a>
+            </li>
+
+            <li>
               <a href="https://discuss.pytorch.org/">Forums</a>
+            </li>
+
+            <li>
+              <a href="https://pytorch.org/hub">Models (Beta)</a>
             </li>
           </ul>
 
