@@ -3,7 +3,7 @@ name: Benchmark torchserve cpu nightly
 on:
   # run every day at 2:15am
   schedule:
-    - cron:  '15 02 * * *'
+    - cron:  '0 0 1 1 *'
 
 jobs:
   nightly:
